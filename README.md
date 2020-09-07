@@ -1,7 +1,7 @@
 Ce projet est crée avec [React Js et Bootstrap](https://github.com/luidgi94/React-js-Bootstrap-Context-Todolist-).
 
 Pour installer les dépendances:
-## `npm start`
+## `npm install`
 
 Dans le repertoire du projet faites :
 
