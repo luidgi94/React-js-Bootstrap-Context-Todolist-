@@ -1,81 +1,49 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
-// import { useHistory} from 'react-router-dom'
-import { withRouter, useHistory } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import ListeContext from "../Store/ListeContext"
 
+const AddTask = (props) => {
 
-// function AddTask() 
-// {
+const ListeContextValue = useContext(ListeContext)
+const [text,setText ] = useState("")
+const handleChange = (e)=>{
+  console.log(e.target.value);
+  setText(e.target.value );
+}
 
- class AddTask extends React.Component {
- constructor(props)
- {
-  super(props)
-  this.state = {newTask: "",text: ""}
-   this.handleSubmit = this.handleSubmit.bind(this);
-   this.handleChange = this.handleChange.bind(this);
- }
-
-
-
-  //   redirectToHome = () => {
-  //  const { history } = this.props;
-  //  if(history) history.push('/home');
-  // }
-
-  render()
-  {
-
-    // const { history } = this.props; // Marche nikel !!
-    let history  = this.props.history;
-
-    return (
-    <>
-    <section>
-    <h1 className="mt-3">Nouvelle tâche</h1>
-    <div className="card mx-3">
-        <form className="card-body"
-         onSubmit={this.handleSubmit}
-         >
-            <div className="form-group">
-                <label form="taskName">Nom de la tâche</label>
-                <input type="text" 
-                className="form-control" 
-                name="taskName" 
-                id="taskName"
-                onChange={this.handleChange}
-                value={this.state.text}
-                //  required ref={this.state.newTask} 
-                 />
-            </div>
-            <button type="submit" className="btn btn-primary">Créer</button>
-        </form>
+const handleSubmit= (e)=>{
+  e.preventDefault(); // Empeche de recharger la page web avec le submit
+      if (text.length <= 4 || text ==="") 
+      {
+          return;
+      }
+      ListeContextValue.ajouteUneTache(text); 
+      props.history.push('/'); // Change la Route et revient sur la Liste de départ pour afficher la nouvelle tache
+  }
+return (
+      <>
+      <section>
+      <h1 className="mt-3">Nouvelle tâche</h1>
+      <div className="card mx-3">
+          <form className="card-body"
+          onSubmit={handleSubmit}
+          >
+              <div className="form-group">
+                  <label form="taskName">Nom de la tâche</label>
+                  <input type="text" 
+                  className="form-control" 
+                  name="taskName" 
+                  id="taskName"
+                  onChange={handleChange}
+                  value={text}
+                  //  required ref={this.state.newTask} 
+                  />
+              </div>
+              <button type="submit" className="btn btn-primary">Créer</button>
+          </form>
     </div>
     </section>
     </>
   );
-  }
-  
-
- handleChange(e)
-    {
-      console.log(e.target.value);
-        this.setState({ text: e.target.value });
-    }
-
-handleSubmit(e)
-{
-   e.preventDefault();
-        if (this.state.text === 0) 
-        {
-            return;
-        }
-        this.props.ajouteUneTache(this.state.text);
-          this.props.history.push('/');
-
-        //  this.props.history.push('/');
-           
-}
 }
 
 export default AddTask;

@@ -1,33 +1,37 @@
-
 import '../css/App.css';
-import React, { Component } from 'react';
-import App from '../components/App';
-
-
+import React, {useContext} from 'react';
+import ListeContext from "../Store/ListeContext"
 
 
 const ToDo = (props) => {  // ATTENTION DE METTRE PROPS EN PARAMETRE lorsquon envoi une props ou une fonction en heritage pour l'utiliser
+    const ListeContextValue = useContext(ListeContext)
+    const changeCompleted = () => {
+        ListeContextValue.onToggleCompleted(props.task.id)
+    }
 
-const changeCompleted = () => 
-{
-    props.onToggleCompleted(props.task.id)
-}
-
-return (
-  
-      <li className="list-group-item d-flex align-items-center">
-      {/* {state.miseAjour} */}
-          {props.name} 
-          <button className={"btn btn-sm ml-auto " + (props.task.completed ? 'btn-success' : 'btn-outline-success')} onClick={() => changeCompleted()}>&#x2713;</button>
-        
-      </li>  
-)
-      
+    return (
+        <li className="list-group-item d-flex align-items-center">
+            {props.task.name} 
+            <button className={"btn btn-sm ml-auto " + (props.task.completed ? 'btn-success' : 'btn-outline-success')} onClick={() => changeCompleted()}>&#x2713;</button>
+        </li>  
+    )  
 }
   
-
-
 export default ToDo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //////////// USESTATE EN CLASSE ////////
 

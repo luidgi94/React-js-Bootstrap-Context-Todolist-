@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FaListAlt, FaCheckSquare, FaPlusSquare, FaTrash } from 'react-icons/fa'
 import { NavLink, Link } from 'react-router-dom'
+import ListeContext from "../Store/ListeContext"
 import '../css/App.css';
 
 
 function NavBar(props) { // INFO : Lorsqu'on envoit une fonction en attribut d'un composant elle est contenu dans les props du composant
 // mais dans le fichier .js il faut pas oublier de mettre en attribu funct(props) pour utiliser cette fonction avec props.func 
 //dans la fonction principale du composant
+const listeContextValue = useContext(ListeContext) // on met en place la valeur du context 
 
-const suppression = () => 
-{
-  console.log('ON SUPPRIME')
-  props.supprimerTache()
-}
+  const suppression = () => 
+  {
+    console.log('ON SUPPRIME')
+    listeContextValue.supprimerTache()
+  }
   return (
     <>
       <footer className="d-flex justify-content-between bg-secondary p-3" id="mainFooter"> 
@@ -21,22 +23,11 @@ const suppression = () =>
           <NavLink to="/completed" className="btn btn-outline-dark bg-light"><FaCheckSquare /></NavLink>
           <NavLink to="/add-task"  className="btn btn-outline-dark bg-light"><FaPlusSquare /></NavLink>
           <NavLink to="/supression" className="btn btn-outline-dark bg-light"><FaTrash /></NavLink>
-          {/* <Link
-              component="button"
-              variant="body2"
-              onClick={() => {
-                console.info("I'm a button.");
-              }}
-            >
-              <FaTrash />
-          </Link> */}
+       
 
         </div>
-         {/* <form  onSubmit={suppression}>
-            <button className="btn btn-outline-dark bg-light" type="submit" className="btn btn-primary"><FaTrash /></button>
-        </form> */}
+
         <button className="btn btn-outline-dark bg-light" onClick={suppression}><FaTrash /></button>
-        {/* <button className="btn btn-outline-dark bg-light" ><FaTrash /></button>  */}
       </footer>
     </>
   );
