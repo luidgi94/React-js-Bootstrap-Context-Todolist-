@@ -68,39 +68,3 @@ export default App;
 
 
 
-
-//////////////////////////////////// BARRE DE RECHERCHE //////////////////////
-// const search = (event)=> {
-//   let recherche = (event.target.value.substr(0,20))
-// }
-
- {/* <button onClick={Mac}> Incrementer</button><span>{text}</span> */}
-      {/* <BrowserRouter forceRefresh = {true} > */}
-
-{/* <Route path="/supression"  exact render={(props) => <ToDoList {...props} supprimerTache={supprimerTache}  tasks={tasks} />} /> */}
-  {/* <Route path="/" exact render={(props) => <ToDoList {...props} tasks={initialData} />} /> */}
-          {/* <Route path="/completed"  exact render={(props) => <ToDoList {...props} tasks={initialData} />} /> */}
-          {/* <Route path="/add-task"  exact component={AddTask} ajouteUneTache={ajouteUneTache} tasks={tasks} /> */}
-
-
-// == Internal helpers ==============================================
-
-
-  // const [tasks, setTasks] = useState(initialData);
-// let copyTasks = tasks; // = initalData (tableau)
-// console.log(React.version);
- // console.log(taskId,'voici la valeur de l\'id complete')
-  // setTasks(
-  //   tasks.map(task => {
-  //   if (task.id = taskId){
-  //    return task.completed = !task.completed;
-  //   }
-  // })
-  // );
-
-// == Tuto useState =========================================================
- // // TEST USESTATE (HOOK)
-  // const [text, setText] = useState(1)  (il faut activer mac dans le render )
-  // const Mac =()=> {
-  //   setText(text + 1);
-  // }

@@ -36,23 +36,3 @@ const listeContextValue = useContext(ListeContext) // on met en place la valeur 
 export default NavBar;
 
 
-
-
-// const ToDo = (props) => {
-
-// const changeCompleted = () => 
-// {
-//     props.onToggleCompleted(props.task.id)
-// }
-
-// return (
-  
-//       <li className="list-group-item d-flex align-items-center">
-//       {/* {state.miseAjour} */}
-//           {props.name} 
-//           <button className={"btn btn-sm ml-auto " + (props.task.completed ? 'btn-success' : 'btn-outline-success')} onClick={() => changeCompleted()}>&#x2713;</button>
-        
-//       </li>  
-// )
-      
-// }
